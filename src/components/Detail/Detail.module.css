@@ -1,0 +1,44 @@
+.container{
+    left: 50%;
+    background: linear-gradient(135deg, rgba(46, 205, 207, 0.2), rgba(255, 255, 255, 0.8));
+    position: absolute;
+    width: 30em;
+    height: 33em;
+    transform: translate(-50%);
+    border-radius: 20px;
+}
+
+.img{
+    border-radius: 50%;
+    margin: 7px;
+}
+.name{
+    background-color: rgb(232, 198, 27);
+    margin: 7px;
+    border-radius: 20px;
+}
+
+.specie{
+    background-color: rgba(33, 168, 139, 0.4);
+    margin: 7px;
+    border-radius: 20px;
+
+}
+
+.gender{
+    background-color: rgba(56, 209, 133, 0.4);
+    margin: 7px;
+    border-radius: 20px;
+}
+
+.status{
+    background-color: rgba(33, 168, 139, 0.4);
+    margin: 7px;
+    border-radius: 20px;
+}
+
+.origin{
+    background-color: rgba(56, 209, 133, 0.4);
+    margin: 7px;
+    border-radius: 20px;
+}

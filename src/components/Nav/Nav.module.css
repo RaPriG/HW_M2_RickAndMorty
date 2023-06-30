@@ -1,0 +1,110 @@
+.container {
+    background-color: #B9E5D3;
+    width: 100vw;
+    position: relative;
+    align-items: center;
+    box-shadow: 0px 4px 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0px;
+}
+
+.logo {
+    width: 250px;
+    margin-left: 15px;
+    margin-right: 10%;
+}
+
+.onsearch {
+    position: absolute;
+    left: 30%;
+}
+
+.containerlink {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 8%;
+}
+
+@media screen and (max-width: 1000px) {
+    .onsearch {
+        left: 30%;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .containerlink {
+        right: 2%;
+        flex-wrap: wrap;
+        position: static;
+    }
+
+    .container {
+        justify-content: center;
+    }
+
+    .onsearch {
+        position: static;
+
+    }
+}
+
+.backgroundlink1 {
+    margin: 2px;
+    border-top-left-radius: 0.5em 0.5em;
+    border-top-right-radius: 0.5em 0.5em;
+    background-color: #2dcf91;
+    width: 70px;
+    padding: 3px;
+    border: 1px solid #121404;
+}
+
+.backgroundlink2 {
+    margin: 2px;
+    border-top-left-radius: 0.5em 0.5em;
+    border-top-right-radius: 0.5em 0.5em;
+    background-color: #97db2a;
+    width: 70px;
+    padding: 3px;
+    border: 1px solid #121404;
+}
+
+.backgroundlink3 {
+    margin: 2px;
+    border-top-left-radius: 0.5em 0.5em;
+    border-top-right-radius: 0.5em 0.5em;
+    background-color: #d2e716;
+    /* background-color: #2DCF77; */
+    width: 70px;
+    padding: 3px;
+    border: 1px solid #121404;
+}
+
+.backgroundlink4 {
+    margin: 2px;
+    border-top-left-radius: 0.5em 0.5em;
+    border-top-right-radius: 0.5em 0.5em;
+    background-color: #dbe29e;
+    width: 70px;
+    padding: 3px;
+    border: 1px solid #121404;
+}
+
+.backgroundlink1:hover,
+.backgroundlink2:hover,
+.backgroundlink3:hover,
+.backgroundlink4:hover {
+    box-shadow: 0px 2px 4px 2px;
+}
+
+
+
+.link {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    font-family:  'Roboto';
+}
