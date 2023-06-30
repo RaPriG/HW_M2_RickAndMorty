@@ -11,7 +11,7 @@
    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
  }
 
- .planeta {
+  .planeta {
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -19,9 +19,8 @@
   top: 30%;
   right: 2%;
   transform: translate(-50%, -50%);
-  /* animation: rotate 10s linear infinite; */
-  animation: rotate 50s linear infinite;
-}
+   animation: rotate 50s linear infinite;
+} 
 
 .luna {
    width: 100px;
@@ -31,33 +30,19 @@
    bottom: 30%;
    left: 10%;
    transform: translate(-50%, -50%);
-   /* animation: rotate 10s linear infinite; */
-   animation: rotate 40s linear infinite;
- }
+    animation: rotate 40s linear infinite;
+ } 
 
- .portal {
-   width: 130px;
-   height: 130px;
-   border-radius: 50%;
-   position: absolute;
-   bottom: -5%;
-   right: 0%;
-   transform: translate(-50%, -50%);
-   /* animation: rotate 10s linear infinite; */
-   animation: rotate 10s linear infinite;
- }
-
- .tierra {
+  .tierra {
    width: 70px;
    height: 70px;
    border-radius: 50%;
    position: absolute;
-   bottom: 0%;
+   bottom: 5%;
    right: 45%;
    transform: translate(-50%, -50%);
-   /* animation: rotate 10s linear infinite; */
-   animation: rotate 40s linear infinite;
- }
+    animation: rotate 40s linear infinite;
+ }  
 
 @keyframes rotate {
   0% {

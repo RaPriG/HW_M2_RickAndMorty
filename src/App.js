@@ -45,7 +45,7 @@ function App() {
    //    container.appendChild(world);
    // }
    useEffect(() => {
-      createStart();
+       createStart();
      
    }, []);
 
