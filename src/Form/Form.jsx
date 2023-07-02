@@ -36,26 +36,8 @@ export default function Form(sesion) {
                 <img src={logo} className={styles.imglog} />
             </div>
 
-            <div style={{
-                position: 'absolute',
-                left: '50%',
-                transform: ' translate( -50%, 50%)',
-                justifyContent: 'center',
-                justifyItems: 'center',
-                background: 'linear-gradient(135deg, rgba(46, 205, 207, 0.7), rgba(255, 255, 255, 0.8))',
-                width: 400,
-                height: 200,
-                borderRadius: 20,
-                boxShadow: '0px 8px 10px',
-            }}>
-                <form onSubmit={handleSubmit} style={{
-                    position: 'relative',
-                    top: 10,
-                    left: '50%',
-                    transform: ' translate(-50%)',
-                    width: '100%',
-                    height: 180
-                }}>
+            <div className={styles.containerForm}>
+                <form onSubmit={handleSubmit} className={styles.form}>
                     <label htmlFor='email' style={{
                         position: 'absolute',
                         left: 54,
