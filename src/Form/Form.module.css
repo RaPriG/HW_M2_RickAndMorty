@@ -67,3 +67,37 @@
     width: 100%;
     height: 180px;
 }
+
+.labelEmail{
+    position: absolute;
+    left: 54px;
+    width: 300px;
+    text-align: start;
+    top: 5px;
+}
+
+.labelPassword{
+    position: absolute;
+    width: 288px;
+    left: 54px;
+    text-align: start;
+    top: 60px;
+}
+
+.inputEmail{
+    position: absolute;
+    left: 52px;
+    width: 288px;
+    height: 20px;
+    top: 30px;
+}
+
+.inputPassword{
+    position: absolute;
+    bottom: 70px;
+    left: 52px;
+    width: 288px;
+    height: 20px;
+    justify-items: center;
+    align-self: center;
+}

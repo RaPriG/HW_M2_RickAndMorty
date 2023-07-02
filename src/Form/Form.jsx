@@ -1,9 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import logo from '../assets/logo.png';
 import portada from '../assets/portada.png';
 import { useNavigate } from "react-router-dom";
 import styles from './Form.module.css'
 
+
+
+// const validate = (form) => {
+//     const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/;
+//     let errors = {};
+
+//     if (!form.password) {
+//         errors.password = "Debe ingresar un Password Válido";
+//     } else {
+//         errors.password = "";
+//     }
+//     if (!form.email || !regexEmail.test(form.email)) {
+//         errors.email = "Debe ingresar un Email Válido";
+//     } else {
+//         errors.email = "";
+//     }
+
+//     return errors;
+
+// }
 export default function Form(sesion) {
     const navegate = useNavigate();
 
@@ -12,19 +32,22 @@ export default function Form(sesion) {
         password: "",
     });
 
+    // const [errors, setErrors] = useState({
+    //     email: "",
+    //     password: "",
+    // });
+
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setInputs({
-            ...inputs,
-            [name]: value,
-        });
+        setInputs({ ...inputs, [name]: value });
+        // setErrors(validate({ ...inputs, [name]: value }));
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(sesion.login(inputs)){
+        if (sesion.login(inputs)) {
             navegate('/home');
-        }else{
+        } else {
             alert("Email y/o password incorrecto");
         }
     }
@@ -32,48 +55,28 @@ export default function Form(sesion) {
     return (
         <div className={styles.container}>
             <div className={styles.containerportada}>
-                <img img src={portada} className={styles.imgportada} />
-                <img src={logo} className={styles.imglog} />
+                <img img src={portada} className={styles.imgportada} alt="portada" />
+                <img src={logo} className={styles.imglog} alt="logo" />
             </div>
-
             <div className={styles.containerForm}>
                 <form onSubmit={handleSubmit} className={styles.form}>
-                    <label htmlFor='email' style={{
-                        position: 'absolute',
-                        left: 54,
-                        width: 300,
-                        textAlign: 'start',
-                        top: 5
-                    }}>Email:</label>
+                    <label htmlFor='email' className={styles.labelEmail}>Email:</label>
                     <br />
-                    <input name='email' value={inputs.email} onChange={handleChange} type='text' placeholder='Escribe tu email...'
-                        style={{
-                            position: 'absolute',
-                            left: 52,
-                            width: 288,
-                            height: 20,
-                            top: 30
-                        }}></input>
-                    {/* {errors.email && <p className='danger'>{errors.email}</p>} */}
+                    <div>
+                        <input name='email' value={inputs.email}
+                            onChange={handleChange}
+                            type='text'
+                            placeholder='Escribe tu email...'
+                            className={styles.inputEmail} />
+                    </div>
                     <br />
-                    <label htmlFor='password'
-                        style={{
-                            position: 'absolute',
-                            width: 288,
-                            left: 54,
-                            textAlign: 'start',
-                            top: 60
-                        }}>Contraseña:</label>
-                    <input name='password' value={inputs.password} onChange={handleChange} type='password' placeholder='Escribe tu contraseña...'
-                        style={{
-                            position: 'absolute',
-                            bottom: 70,
-                            left: 52,
-                            width: 288,
-                            height: 20,
-                            justifyItems: 'center',
-                            alignSelf: 'center',
-                        }}></input>
+                    <label htmlFor='password' className={styles.labelPassword}>Contraseña:</label>
+                    <input name='password'
+                        value={inputs.password}
+                        onChange={handleChange}
+                        type='password'
+                        placeholder='Escribe tu contraseña...'
+                        className={styles.inputPassword} />
 
                     <button className={styles.btn} type='submit'>Entrar</button>
                 </form>
