@@ -38,12 +38,6 @@ function App() {
       }
    }
 
-
-   // const createWorld =()=>{
-   //    const world = document.createElement('div');
-   //    world.className = "world";
-   //    container.appendChild(world);
-   // }
    useEffect(() => {
        createStart();
      
@@ -56,7 +50,7 @@ function App() {
          alert("El personaje que intenta mostrar ya está en pantalla");
          return;
       }
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
          } else {
