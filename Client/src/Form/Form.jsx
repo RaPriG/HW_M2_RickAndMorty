@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import logo from '../assets/logo.png';
 import portada from '../assets/portada.png';
-import { useNavigate } from "react-router-dom";
 import styles from './Form.module.css'
 
 
@@ -25,7 +24,6 @@ import styles from './Form.module.css'
 
 // }
 export default function Form(sesion) {
-    const navegate = useNavigate();
 
     const [inputs, setInputs] = useState({
         email: "",
@@ -45,11 +43,7 @@ export default function Form(sesion) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (sesion.login(inputs)) {
-            navegate('/home');
-        } else {
-            alert("Email y/o password incorrecto");
-        }
+        sesion.login(inputs);
     }
 
     return (
