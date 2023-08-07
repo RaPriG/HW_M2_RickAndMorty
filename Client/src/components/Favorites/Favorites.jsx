@@ -9,12 +9,13 @@ export default function Favorites({ onClose }) {
    const filterFav = useSelector(state => state.filterFavorite);
    const [favSelec, setFavSelec] = useState([]);
    const [siFilter, setSiFilter] = useState(false);
-   
+
    const dispatch = useDispatch();
 
    useEffect(() => {
-      let resul = siFilter ? filterFav : myFavorites; 
+      let resul = siFilter ? filterFav : myFavorites;
       setFavSelec(resul);
+      console.log("FAVORITOS", myFavorites);
    }, [myFavorites, filterFav, siFilter]);
 
    const handleOrder = (event) => {

@@ -3,26 +3,6 @@ import logo from '../assets/logo.png';
 import portada from '../assets/portada.png';
 import styles from './Form.module.css'
 
-
-
-// const validate = (form) => {
-//     const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/;
-//     let errors = {};
-
-//     if (!form.password) {
-//         errors.password = "Debe ingresar un Password Válido";
-//     } else {
-//         errors.password = "";
-//     }
-//     if (!form.email || !regexEmail.test(form.email)) {
-//         errors.email = "Debe ingresar un Email Válido";
-//     } else {
-//         errors.email = "";
-//     }
-
-//     return errors;
-
-// }
 export default function Form(sesion) {
 
     const [inputs, setInputs] = useState({
@@ -30,15 +10,9 @@ export default function Form(sesion) {
         password: "",
     });
 
-    // const [errors, setErrors] = useState({
-    //     email: "",
-    //     password: "",
-    // });
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setInputs({ ...inputs, [name]: value });
-        // setErrors(validate({ ...inputs, [name]: value }));
     }
 
     const handleSubmit = (event) => {

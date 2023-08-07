@@ -1,11 +1,6 @@
 html {
-  /* background-image: url('/public/RickAndMorty.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%; */
-
   background-color: black;
+  overflow: hidden;
 
 }
 body {

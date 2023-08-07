@@ -7,18 +7,15 @@ import Form from './Form/Form';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-
-// import { useNavigate } from 'react-router-dom';
 import Favorites from './components/Favorites/Favorites'
 import Swal from 'sweetalert2';
 import AlertContent from 'sweetalert2-react-content';
 const API = "http://localhost:3001/rickandmorty/character";
 function App() {
    const navegate = useNavigate();
-   const cantStars = 300;
+   const cantStars = 500;
    const container = document.body;
    const createStart = () => {
-
       for (let i = 0; i < cantStars; i++) {
          const star = document.createElement('div');
          if (i % 2 === 0) {
@@ -41,7 +38,17 @@ function App() {
       }
    }
 
+   const agregarPlanetas =()=>{
+     const planeta = document.querySelector(".planeta");
+     const luna = document.querySelector(".luna");
+     const tierra = document.querySelector(".tierra");
+     planeta.src ="./planeta.png";
+     luna.src ="./luna.png";
+     tierra.src ="./tierra.png";
+   }
+
    useEffect(() => {
+      agregarPlanetas();
       createStart();
    }, []);
 
@@ -49,9 +56,13 @@ function App() {
    const isRaiz = useLocation().pathname === '/';
 
    function onSearch(id) {
-      console.log(characters);
       if (characters.find(p => p.id === Number(id))) {
-         alert("El personaje que intenta mostrar ya está en pantalla");
+         const MySwal = AlertContent(Swal);
+         MySwal.fire({
+            title: "El personaje que intenta mostrar ya está en pantalla",
+            icon: 'info',
+            timer: 3000,
+         });
          return;
       }
       axios(`${API}/${id}`)
@@ -59,7 +70,6 @@ function App() {
             setCharacters((oldChars) => [...oldChars, data]);
          })
          .catch((err) => {
-            console.log("ERROR: ", err);
             const MySwal = AlertContent(Swal);
             MySwal.fire({
                title: err.response.data,
@@ -75,7 +85,6 @@ function App() {
 
    function login(user) {
       const { email, password } = user;
-     
       axios.post(`${API}/login`, {
          email: email,
          password: password
@@ -84,8 +93,17 @@ function App() {
          if (access) {
             navegate('/home');
         } else {
-            alert("Email y/o password incorrecto");
+         const MySwal = AlertContent(Swal);
+         MySwal.fire({
+            title: "Email y/o password incorrecto",
+            icon: 'error',
+            timer: 2000,
+            showConfirmButton: false,
+
+         });
         }
+      }).catch(error=>{
+         console.log("recibiendo error: ",error);
       });
    }
 

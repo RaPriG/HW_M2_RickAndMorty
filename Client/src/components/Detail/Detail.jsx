@@ -6,7 +6,6 @@ export default function Detail({ characters }) {
     let personaje = characters.filter((personaje) => personaje.id === Number(id))[0];
 
     return (
-
         <div className={styles.container}>
             <div>
                 <img src={personaje.image} alt={personaje.name} className={styles.img} />
