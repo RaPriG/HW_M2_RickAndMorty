@@ -11,6 +11,7 @@ export default function Card(personaje) {
    const myFavorites = useSelector(state => state.myFavorites);
 
    const handleFavorite = () => {
+    
       if (isFav) {
          setIsFav(false);
          dispatch(removeFav(personaje.id));
@@ -26,7 +27,7 @@ export default function Card(personaje) {
             setIsFav(true);
          }
       };
-   }, [myFavorites]);
+   }, [myFavorites,personaje.id]);
 
    return (
 
@@ -35,7 +36,7 @@ export default function Card(personaje) {
             isFav ? (<button onClick={handleFavorite} className={styles.btnFav} >❤️</button>) :
                (<button onClick={handleFavorite} className={styles.btnFav}>🤍</button>)
          }
-         <button className={styles.buttonCerrar} onClick={() => personaje.onClose()}>X</button>
+         {personaje.mostrarBtnCerrar && <button className={styles.buttonCerrar} onClick={() => personaje.onClose()}>X</button>}
          <img className={styles.img} src={personaje.image} alt={personaje.name} />
          <div >
             <div className={styles.containerName}>

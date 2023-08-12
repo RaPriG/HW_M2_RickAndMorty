@@ -6,7 +6,9 @@ export default function Cards({ characters, onClose }) {
    return (
       <div className={styles.container}>
          {characters.map((personaje,index) =>
-            <Card {...personaje} key={index} onClose={() => onClose(personaje.id)} />)}
+            <Card {...personaje} key={index} 
+            onClose={() => onClose(personaje.id)} 
+            mostrarBtnCerrar={true} />)}
       </div>
    )
 }

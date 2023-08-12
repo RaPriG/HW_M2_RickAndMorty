@@ -3,6 +3,12 @@
    z-index: 1;
 }
 
+.containerStar{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 .star {
    position: absolute;
    background-color: white;

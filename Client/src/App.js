@@ -13,9 +13,9 @@ import AlertContent from 'sweetalert2-react-content';
 const API = "http://localhost:3001/rickandmorty/character";
 function App() {
    const navegate = useNavigate();
-   const cantStars = 500;
-   const container = document.body;
-   const createStart = () => {
+   const cantStars = 600;
+   const container = document.querySelector(".containerStar");
+   const createStar = () => {
       for (let i = 0; i < cantStars; i++) {
          const star = document.createElement('div');
          if (i % 2 === 0) {
@@ -49,7 +49,7 @@ function App() {
 
    useEffect(() => {
       agregarPlanetas();
-      createStart();
+      createStar();
    }, []);
 
    const [characters, setCharacters] = useState([]);
@@ -95,7 +95,7 @@ function App() {
         } else {
          const MySwal = AlertContent(Swal);
          MySwal.fire({
-            title: "Email y/o password incorrecto",
+            title: "Usuario y/o contraseña incorrecto",
             icon: 'error',
             timer: 2000,
             showConfirmButton: false,
@@ -117,7 +117,7 @@ function App() {
             } />
             <Route path='/about' element={<About />} />
             <Route path='/detail/:id' element={<Detail characters={characters} />} />
-            <Route path='/favorites' element={<Favorites />} onClose={onClose} />
+            <Route path='/favorites' element={<Favorites onClose={onClose} />} />
          </Routes>
       </div>
    );

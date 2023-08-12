@@ -15,7 +15,6 @@ export default function Favorites({ onClose }) {
    useEffect(() => {
       let resul = siFilter ? filterFav : myFavorites;
       setFavSelec(resul);
-      console.log("FAVORITOS", myFavorites);
    }, [myFavorites, filterFav, siFilter]);
 
    const handleOrder = (event) => {
@@ -42,8 +41,8 @@ export default function Favorites({ onClose }) {
                <option value="Unknown">Unknown</option>
             </select>
          </div>
-         {favSelec && favSelec.map((personaje, index) =>
-            <Card {...personaje} key={index} onClose={() => onClose(personaje.id)} />)}
+         {favSelec && favSelec.map((personaje,index) =>
+            <Card {...personaje} key={index} onClose={() => onClose(personaje.id)} mostrarBtnCerrar={false} />)}
       </div>
    )
 }
