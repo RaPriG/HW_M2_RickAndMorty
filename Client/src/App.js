@@ -10,7 +10,7 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Favorites from './components/Favorites/Favorites'
 import Swal from 'sweetalert2';
 import AlertContent from 'sweetalert2-react-content';
-const API = "http://localhost:3001/rickandmorty/character";
+const API = "http://localhost:3001/rickandmorty";
 function App() {
    const navegate = useNavigate();
    const cantStars = 600;
@@ -38,13 +38,13 @@ function App() {
       }
    }
 
-   const agregarPlanetas =()=>{
-     const planeta = document.querySelector(".planeta");
-     const luna = document.querySelector(".luna");
-     const tierra = document.querySelector(".tierra");
-     planeta.src ="./planeta.png";
-     luna.src ="./luna.png";
-     tierra.src ="./tierra.png";
+   const agregarPlanetas = () => {
+      const planeta = document.querySelector(".planeta");
+      const luna = document.querySelector(".luna");
+      const tierra = document.querySelector(".tierra");
+      planeta.src = "./planeta.png";
+      luna.src = "./luna.png";
+      tierra.src = "./tierra.png";
    }
 
    useEffect(() => {
@@ -65,7 +65,7 @@ function App() {
          });
          return;
       }
-      axios(`${API}/${id}`)
+      axios(`${API}/character/${id}`)
          .then(({ data }) => {
             setCharacters((oldChars) => [...oldChars, data]);
          })
@@ -85,26 +85,24 @@ function App() {
 
    function login(user) {
       const { email, password } = user;
-      axios.post(`${API}/login`, {
-         email: email,
-         password: password
-      }).then(({ data }) => {
-         const { access } = data;
-         if (access) {
-            navegate('/home');
-        } else {
-         const MySwal = AlertContent(Swal);
-         MySwal.fire({
-            title: "Usuario y/o contraseña incorrecto",
-            icon: 'error',
-            timer: 2000,
-            showConfirmButton: false,
+      axios.get(`${API}/login?email=${email}&password=${password}`)
+         .then(({ data }) => {
+            const { access } = data;
+            if (access) {
+               navegate('/home');
+            } else {
+               const MySwal = AlertContent(Swal);
+               MySwal.fire({
+                  title: "Usuario y/o contraseña incorrecto",
+                  icon: 'error',
+                  timer: 2000,
+                  showConfirmButton: false,
 
+               });
+            }
+         }).catch(error => {
+            console.log("recibiendo error: ", error);
          });
-        }
-      }).catch(error=>{
-         console.log("recibiendo error: ",error);
-      });
    }
 
    return (

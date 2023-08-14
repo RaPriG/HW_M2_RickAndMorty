@@ -3,7 +3,7 @@ const server = express();
 const router = express.Router();
 const morgan = require("morgan");
 const routes = require("./routes");
-
+const { conn } = require("./DB_connection")
 const PORT = 3001;
 const API = "/rickandmorty";
 
@@ -26,9 +26,12 @@ server.use(morgan("dev"));
 
 server.use(API, routes);
 
-server.listen(PORT, () => {
-    console.log('Server raised in port: ' + PORT);
+conn.sync({ force: true }).then(() => {
+    server.listen(PORT, () => {
+        console.log('Server raised in port: ' + PORT);
+    });
 });
+
 
 module.exports = {
     server,

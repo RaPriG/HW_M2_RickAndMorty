@@ -6,9 +6,7 @@ const getCharById = async (req, res) => {
    
     try {
         const response = await Axios(`${URL}${req.params.id}`)
-       
         const { data } = response;
-        console.log("RESPUESTA: ", data);
         if (data.name) {
             const { id, name, gender, species, origin: { name: origin }, image, status } = data;
             const personaje = {
